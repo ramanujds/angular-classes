@@ -1,0 +1,26 @@
+<form [formGroup]="bookForm">
+    <div class="form-group">
+        <label for="id">Book ID</label>
+        <input type="number" class="form-control" formControlName="id">
+    </div>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" formControlName="title">
+    </div>
+    <div class="form-group">
+        <label for="id">Price</label>
+        <input type="number" class="form-control" formControlName="price">
+    </div>
+    <div formGroupName="authorForm">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" formControlName="name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" formControlName="email">
+        </div>
+    </div>
+</form>
+
+{{bookForm.value|json}}

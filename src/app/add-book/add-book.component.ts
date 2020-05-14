@@ -21,7 +21,8 @@ export class AddBookComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  addBook(){
+  addBook(f){
+    console.log(f);
     let book:Book=new Book();
     book.id=this.id;
     book.title=this.title;

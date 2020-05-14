@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,8 @@ import { ViewListComponent } from './view-list/view-list.component';
 import { UpdateComponent } from './update/update.component';
 import { AddBookComponent } from './add-book/add-book.component';
 import { BookDataService } from './book-data.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AddBookReactiveComponent } from './add-book-reactive/add-book-reactive.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,15 @@ import { BookDataService } from './book-data.service';
     ViewBookComponent,
     ViewListComponent,
     UpdateComponent,
-    AddBookComponent
+    AddBookComponent,
+    PageNotFoundComponent,
+    AddBookReactiveComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [BookDataService],
   bootstrap: [AppComponent]

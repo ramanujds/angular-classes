@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-footer',
@@ -8,8 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   constructor() { }
-
+  @Input('txt')
+  inputText:string;
   ngOnInit(): void {
   }
+
+  // @Output()
+  // public outputEvent = new EventEmitter();
+
+  // fireEvent(){
+  //   this.outputEvent.emit("Event Fired");
+  // }
 
 }
