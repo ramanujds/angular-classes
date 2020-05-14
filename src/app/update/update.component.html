@@ -1,1 +1,59 @@
-<p>update works!</p>
+<h3>Enter Book Details :</h3>
+<form (ngSubmit)="updateBook()" class="form-group" #f="ngForm">
+    <label for="id">ID</label>
+    <input type="number"
+            id="id"
+            name="id"
+            class="form-control"
+            ngModel
+            [(ngModel)]="id"
+            placeholder="Enter Book ID"
+            required
+            #bId="ngModel"
+    >
+    <p class="alert-danger" *ngIf="!bId.valid && bId.touched">* Enter a Proper ID</p>
+
+    <label for="title">Title</label>
+    <input type="text"
+            id="title"
+            name="title"
+            class="form-control"
+            ngModel
+            [(ngModel)]="title"
+            placeholder="Enter Title"
+            required
+            #btitle="ngModel"
+            readonly
+    >
+    <p class="alert-danger" *ngIf="!btitle.valid && btitle.touched">* Enter a Title</p>
+    <label for="author">Author</label>
+    <input type="text"
+            id="author"
+            name="author"
+            class="form-control"
+            ngModel
+            [(ngModel)]="author"
+            placeholder="Enter Author"
+            required
+            #bauthor="ngModel"
+    >
+    <p class="alert-danger" *ngIf="!bauthor.valid && bauthor.touched">* Enter Author Name</p>
+    <label for="price">Price</label>
+    <input type="number"
+            id="price"
+            name="price"
+            class="form-control"
+            ngModel
+            [(ngModel)]="price"
+            placeholder="Enter Price"
+            required
+            #bprice="ngModel"
+    >
+    <p class="alert-danger" *ngIf="!bprice.valid && bprice.touched">* Enter Price</p>
+
+<button type="submit" class="btn btn-success" [disabled]="!f.valid">Update</button>
+
+
+
+</form>
+

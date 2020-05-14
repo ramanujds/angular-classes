@@ -11,6 +11,7 @@ import { ViewBookComponent } from './view-book/view-book.component';
 import { ViewListComponent } from './view-list/view-list.component';
 import { UpdateComponent } from './update/update.component';
 import { AddBookComponent } from './add-book/add-book.component';
+import { BookDataService } from './book-data.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { AddBookComponent } from './add-book/add-book.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [BookDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

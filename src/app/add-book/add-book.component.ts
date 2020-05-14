@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../book';
 
+import { BookDataService } from '../book-data.service';
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-add-book',
   templateUrl: './add-book.component.html',
@@ -12,8 +16,8 @@ export class AddBookComponent implements OnInit {
   title:string;
   author:string;
   price:number;
-  books:Array<Book>=[];
-  constructor() { }
+ 
+  constructor(public bookService:BookDataService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -23,9 +27,9 @@ export class AddBookComponent implements OnInit {
     book.title=this.title;
     book.author=this.author;
     book.price=this.price;
-    this.books.push(book);
-    alert("1 Book Added");
-
+    this.bookService.addBook(book);
+    this.router.navigate(['/viewall']);
+    
   }
 
 }
