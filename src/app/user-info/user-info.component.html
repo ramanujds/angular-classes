@@ -1,0 +1,59 @@
+<h3>Enter User Details :</h3>
+<form (ngSubmit)="addUser()" class="form-group" #f="ngForm">
+    <label for="id">ID</label>
+    <input type="number"
+            id="id"
+            name="id"
+            class="form-control"
+            ngModel
+            [(ngModel)]="user.userId"
+            placeholder="Enter User ID"
+            required
+            #bId="ngModel"
+    >
+    <p class="alert-danger" *ngIf="!bId.valid && bId.touched">* Enter a Proper ID</p>
+
+    <label for="userName">User Name</label>
+    <input type="text"
+            id="userName"
+            name="userName"
+            class="form-control"
+            ngModel
+            [(ngModel)]="user.userName"
+            placeholder="Enter User Name"
+            required
+            #buserName="ngModel"
+    >
+    <p class="alert-danger" *ngIf="!buserName.valid && buserName.touched">* Enter a User Name</p>
+    <label for="email">email</label>
+    <input type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            ngModel
+            [(ngModel)]="user.email"
+            placeholder="Enter Email"
+            required
+            email
+            #bemail="ngModel"
+    >
+    <p class="alert-danger" *ngIf="!bemail.valid && bemail.touched">* Enter Email</p>
+    <label for="phone">phone</label>
+    <input type="number"
+            id="phone"
+            name="phone"
+            class="form-control"
+            ngModel
+            [(ngModel)]="user.phone"
+            placeholder="Enter Phone"
+            required
+            #bphone="ngModel"
+    >
+    <p class="alert-danger" *ngIf="!bphone.valid && bphone.touched">* Enter Phone</p>
+
+<button type="submit" class="btn btn-success" [disabled]="!f.valid">Add User</button>
+
+
+
+</form>
+

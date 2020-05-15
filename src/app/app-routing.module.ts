@@ -7,6 +7,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AddBookReactiveComponent } from './add-book-reactive/add-book-reactive.component';
 import { GithubUserComponent } from './github-user/github-user.component';
 import { CovidInfoComponent } from './covid-info/covid-info.component';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { ViewAllUserComponent } from './view-all-user/view-all-user.component';
 
 
 const routes: Routes = [
@@ -27,6 +29,12 @@ const routes: Routes = [
   },
   {
     path:'covid-info',component:CovidInfoComponent
+  },
+  {
+    path:"user-api",component:UserInfoComponent
+  },
+  {
+    path:"user-view-all",component:ViewAllUserComponent
   },
   {
     path:'not-found',component:PageNotFoundComponent

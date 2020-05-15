@@ -18,6 +18,8 @@ import { AddBookReactiveComponent } from './add-book-reactive/add-book-reactive.
 import { ShortenPipe } from './shorten.pipe';
 import { GithubUserComponent } from './github-user/github-user.component';
 import { CovidInfoComponent } from './covid-info/covid-info.component';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { ViewAllUserComponent } from './view-all-user/view-all-user.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { CovidInfoComponent } from './covid-info/covid-info.component';
     AddBookReactiveComponent,
     ShortenPipe,
     GithubUserComponent,
-    CovidInfoComponent
+    CovidInfoComponent,
+    UserInfoComponent,
+    ViewAllUserComponent
   ],
   imports: [
     BrowserModule,
