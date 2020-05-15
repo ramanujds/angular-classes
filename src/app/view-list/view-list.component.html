@@ -9,9 +9,9 @@
 </tr>
 <tr *ngFor="let b of bookService.books">
     <td>{{b.id}}</td>
-    <td>{{b.title}}</td>
+    <td>{{b.title | uppercase | shorten:10}}</td>
     <td>{{b.author}}</td>
-    <td>{{b.price}}</td>
+    <td>{{b.price | currency:'EUR'}}</td>
     <td>
         <button (click)="delete(b.id)">Delete</button> | <button (click)="update(b.id)">Update</button> 
     

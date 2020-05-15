@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,9 @@ import { AddBookComponent } from './add-book/add-book.component';
 import { BookDataService } from './book-data.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AddBookReactiveComponent } from './add-book-reactive/add-book-reactive.component';
+import { ShortenPipe } from './shorten.pipe';
+import { GithubUserComponent } from './github-user/github-user.component';
+import { CovidInfoComponent } from './covid-info/covid-info.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +30,17 @@ import { AddBookReactiveComponent } from './add-book-reactive/add-book-reactive.
     UpdateComponent,
     AddBookComponent,
     PageNotFoundComponent,
-    AddBookReactiveComponent
+    AddBookReactiveComponent,
+    ShortenPipe,
+    GithubUserComponent,
+    CovidInfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [BookDataService],
   bootstrap: [AppComponent]

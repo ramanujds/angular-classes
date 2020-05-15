@@ -1,0 +1,12 @@
+<h2>COVID-19 Status</h2>
+<form (ngSubmit)="getCovidInfo()" class="form-group">
+    <label for="country">User Name</label>
+    <input type="search" name="country" id="country" ngModel [(ngModel)]="countryname" class="form-control">
+    <button type="submit" class="btn btn-dark">Search</button>
+</form>
+
+<div *ngIf="country">
+    <p>Confirmed : {{country.confirmed.value}}</p>
+    <p>Recovered : {{country.recovered.value}}</p>
+    <p>Deaths : {{country.deaths.value}}</p>
+</div>

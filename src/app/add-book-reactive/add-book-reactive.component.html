@@ -1,11 +1,21 @@
 <form [formGroup]="bookForm">
     <div class="form-group">
         <label for="id">Book ID</label>
-        <input type="number" class="form-control" formControlName="id">
+        <input type="number" class="form-control" formControlName="id"
+            [class.is-invalid]="bookForm.get('id').invalid && bookForm.get('id').touched">
+        <strong *ngIf="bookForm.get('id').invalid && bookForm.get('id').touched" class="text-danger">ID is
+            Required</strong>
     </div>
     <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" class="form-control" formControlName="title">
+        <input type="text" class="form-control" formControlName="title"
+            [class.is-invalid]="bookForm.get('title').invalid && bookForm.get('title').touched">
+        <div *ngIf="bookForm.get('title').touched">
+            <strong *ngIf="bookForm.get('title').errors?.required" class="text-danger">Title is Required</strong>
+            <strong *ngIf="bookForm.get('title').errors?.minlength" class="text-danger">Title must have minimum 3
+                chars..</strong>
+            <strong *ngIf="bookForm.get('title').errors?.forbiddenTitle" class="text-danger">Title not allowed</strong>
+        </div>
     </div>
     <div class="form-group">
         <label for="id">Price</label>
@@ -18,7 +28,13 @@
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" formControlName="email">
+            <input type="email" class="form-control" formControlName="email"
+            [class.is-invalid]="bookForm.get('authorForm').get('email').invalid && bookForm.get('email').touched">
+        <!-- <div *ngIf="authorForm.get('email').touched">
+            <strong *ngIf="authorForm.get('email').errors?.required" class="text-danger">Title is Required</strong>
+            <strong *ngIf="authorForm.get('email').errors?.email" class="text-danger">Invalid Email</strong>
+        
+        </div> -->
         </div>
     </div>
 </form>

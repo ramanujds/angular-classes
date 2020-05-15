@@ -7,11 +7,12 @@ import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
+date:Date;
   constructor() { }
   @Input('txt')
   inputText:string;
   ngOnInit(): void {
+    this.date=new Date();
   }
 
   // @Output()

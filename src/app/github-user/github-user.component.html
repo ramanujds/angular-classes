@@ -1,0 +1,16 @@
+<h2>Github Info</h2>
+<form (ngSubmit)="getGithubInfo()" class="form-group">
+    <label for="username">User Name</label>
+    <input type="search" name="username" id="username" ngModel [(ngModel)]="username" class="form-control">
+    <button type="submit" class="btn btn-dark">Search</button>
+</form>
+
+<div *ngIf="user">
+    <p>Login Name : {{user.login}}</p>
+    <p>User ID : {{user.id}}</p>
+    <p>Company : {{user.company}}</p>
+    <p>Location : {{user.location}}</p>
+    <img width="300" height="300" [src]="user.avatar_url">
+
+</div>
+
