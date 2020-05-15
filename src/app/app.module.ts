@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +20,7 @@ import { GithubUserComponent } from './github-user/github-user.component';
 import { CovidInfoComponent } from './covid-info/covid-info.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { ViewAllUserComponent } from './view-all-user/view-all-user.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,13 @@ import { ViewAllUserComponent } from './view-all-user/view-all-user.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [BookDataService],
+  providers: [BookDataService,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

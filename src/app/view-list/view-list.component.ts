@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookDataService } from '../book-data.service';
 import { Router } from '@angular/router';
+import { Book } from '../book';
 
 @Component({
   selector: 'app-view-list',
@@ -11,15 +12,25 @@ export class ViewListComponent implements OnInit {
 
   
   constructor(public bookService:BookDataService, private router:Router) { }
-
+  books:Array<Book>;
   ngOnInit(): void {
-
+      this.bookService.getAllBooks().subscribe(
+        books=>{
+          this.books=books;
+        }
+      )
   }
   delete(id:number){
     if(confirm("Sure to Delete?")){
-      if(this.bookService.deleteBookById(id)){
-        alert("Deleted Successfully");
-      }
+      this.bookService.deleteBookById(id).subscribe(
+        (success)=>{
+          alert("Deleted Successfully");
+        },
+        error=>{
+          console.log(error);
+          alert("Failed");
+        }
+      )
     }
   }
   update(id:number){

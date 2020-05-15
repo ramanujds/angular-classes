@@ -7,7 +7,7 @@
     <th>Price</th>
     <th>Delete</th>
 </tr>
-<tr *ngFor="let b of bookService.books">
+<tr *ngFor="let b of books">
     <td>{{b.id}}</td>
     <td>{{b.title | uppercase | shorten:10}}</td>
     <td>{{b.author}}</td>

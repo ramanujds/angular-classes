@@ -9,40 +9,45 @@ import { Book } from '../book';
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
-book:Book;
-  id:number;
-  title:string;
-  author:string;
-  price:number;
-  constructor(private activeRoute:ActivatedRoute,private bookService:BookDataService) { }
+  book: Book;
+  id: number;
+  title: string;
+  author: string;
+  price: number;
+  constructor(private activeRoute: ActivatedRoute, private bookService: BookDataService) { }
 
   ngOnInit(): void {
-    this.activeRoute.params.subscribe((param)=>{
-    let id=param['id'];
+    this.activeRoute.params.subscribe((param) => {
+      let id = param['id'];
       console.log(id);
-    let  book=this.bookService.searchById(id);
-    
-    if(book){
-      this.book=book;
-     this.id=book.id;
-     this.title=book.title;
-     this.author=book.author;
-     this.price=book.price;
-    }
+      this.bookService.searchById(id).subscribe(
+        (book)=>{
+        this.book = book;
+        this.id = book.id;
+        this.title = book.title;
+        this.author = book.author;
+        this.price = book.price;
+      },
+      error=>{
+        alert("No Data Found");
+      }
+      )
     }
     )
 
   }
 
 
-  updateBook(){
-    this.book.author=this.author;
-    this.book.id=this.id;
-    this.book.price=this.price;
-    this.book.title=this.title;
-    if(this.bookService.updateBook(this.book)){
-      alert("Updated");
-    }
+  updateBook() {
+    this.book.author = this.author;
+    this.book.id = this.id;
+    this.book.price = this.price;
+    this.book.title = this.title;
+    this.bookService.updateBook(this.book).subscribe(
+      (succsess) => {
+        alert("Updated Successfully");
+      }
+    )
   }
 
 }

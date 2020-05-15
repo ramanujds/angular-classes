@@ -12,25 +12,33 @@ import { Router } from '@angular/router';
 })
 export class AddBookComponent implements OnInit {
 
-  id:number;
-  title:string;
-  author:string;
-  price:number;
- 
-  constructor(public bookService:BookDataService,private router:Router) { }
+  id: number;
+  title: string;
+  author: string;
+  price: number;
+
+  constructor(public bookService: BookDataService, private router: Router) { }
 
   ngOnInit(): void {
   }
-  addBook(f){
-    console.log(f);
-    let book:Book=new Book();
-    book.id=this.id;
-    book.title=this.title;
-    book.author=this.author;
-    book.price=this.price;
-    this.bookService.addBook(book);
-    this.router.navigate(['/viewall']);
-    
+  addBook() {
+    console.log();
+    let book: Book = new Book();
+    book.id = this.id;
+    book.title = this.title;
+    book.author = this.author;
+    book.price = this.price;
+    console.log(book);
+    this.bookService.addBook(book).subscribe(
+      success => {
+        this.router.navigate(['/viewall'])
+      },
+      error => {
+        alert("Error...");
+      }
+    )
+
+
   }
 
 }
